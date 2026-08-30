@@ -274,7 +274,7 @@ document.querySelector('#stepList').addEventListener('click', event => {
 });
 
 document.querySelector('#helpButton').addEventListener('click', () => {
-  window.open('https://web.max.ru/18453513', '_blank', 'noopener,noreferrer');
+  window.open('https://vk.ru/perepletenie9', '_blank', 'noopener,noreferrer');
 });
 
 document.querySelector('#exitWeavingButton').addEventListener('click', () => {
