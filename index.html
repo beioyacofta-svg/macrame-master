@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f1ec" />
+  <title>Макраме-мастер AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=8" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Макраме-мастер AI — на главную">
+      <span class="brand-logo-crop"><img class="brand-logo" src="perepletenie-logo.svg?v=2" alt="Переплетение" /></span>
+      <span class="app-name"><b>Макраме-мастер</b><i>AI</i></span>
+    </a>
+    <button class="quiet-button" id="savedButton" type="button">Мои проекты <span>0</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero screen active" id="homeScreen">
+      <div class="hero-copy">
+        <p class="eyebrow">От школы макраме «Переплетение»</p>
+        <h1>От идеи —<br /><em>к первой нити.</em></h1>
+        <p class="lead">Расскажи, что хочешь сплести. Получи расчёт материалов, схему нарезки и понятный план работы.</p>
+
+        <form class="idea-box" id="ideaForm">
+          <label for="ideaInput">Что будем плести?</label>
+          <div class="idea-row">
+            <input id="ideaInput" type="text" placeholder="Например, сумку 25 × 20 см" autocomplete="off" />
+            <button type="submit" aria-label="Создать проект">
+              <span>Создать мой проект</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
+            </button>
+          </div>
+          <p class="hint">AI задаст только те вопросы, которых не хватает для расчёта.</p>
+        </form>
+
+        <div class="trust-row">
+          <span><b>5</b> изделий</span>
+          <span><b>1</b> точный расчёт</span>
+          <span><b>0</b> лишних догадок</span>
+        </div>
+      </div>
+
+      <div class="hero-art hero-brand-panel" aria-label="Фирменный знак школы макраме Переплетение">
+        <div class="brand-panel-label"><span>01</span> цифровая мастерская</div>
+        <div class="hero-logo-window">
+          <img src="perepletenie-logo.svg?v=4" alt="Логотип школы макраме Переплетение" />
+        </div>
+        <div class="brand-flow" aria-label="Этапы создания проекта">
+          <span>Идея</span><i></i><span>Расчёт</span><i></i><span>Плетение</span>
+        </div>
+        <div class="material-note brand-note">
+          <span>Макраме-мастер AI</span>
+          <strong>Твой расчёт. Твой ритм. Твоё изделие.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection" aria-labelledby="collectionTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Начать с готовой формы</p>
+          <h2 id="collectionTitle">Пять проектов для первой версии</h2>
+        </div>
+        <p>Выбирай изделие — размеры и расход можно уточнить дальше.</p>
+      </div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+  </main>
+
+  <section class="weaving-screen" id="weavingScreen" hidden aria-labelledby="weavingTitle">
+    <header class="weaving-topbar">
+      <div class="weaving-brand">
+        <span class="weaving-logo"><img src="perepletenie-logo.svg?v=8" alt="Переплетение" /></span>
+        <span><small>Макраме-мастер AI</small><strong id="weavingProjectName">Брелок</strong></span>
+      </div>
+      <button class="quiet-button" id="exitWeavingButton" type="button">Выйти из проекта</button>
+    </header>
+
+    <div class="weaving-layout">
+      <aside class="weaving-summary">
+        <p class="eyebrow">Проект сохранён</p>
+        <h2 id="weavingTitle">Начинаем плести</h2>
+        <div class="project-facts" id="weavingFacts"></div>
+        <div class="step-list" id="stepList" aria-label="Этапы проекта"></div>
+      </aside>
+
+      <main class="weaving-workspace">
+        <div class="progress-head"><span id="stepCounter">Шаг 1 из 8</span><strong id="progressPercent">13%</strong></div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+
+        <section class="video-lesson" aria-labelledby="videoLessonTitle">
+          <div class="video-stage">
+            <video id="lessonVideo" controls playsinline preload="metadata"></video>
+            <div class="video-placeholder" id="videoPlaceholder">
+              <span class="video-play-mark" aria-hidden="true">▶</span>
+              <div>
+                <strong>Место для видеоурока</strong>
+                <small id="videoFileHint"></small>
+              </div>
+            </div>
+          </div>
+          <div class="video-caption">
+            <div>
+              <p class="eyebrow">Видеоурок к шагу</p>
+              <h3 id="videoLessonTitle"></h3>
+            </div>
+            <span id="videoDuration">до 2 минут</span>
+          </div>
+          <p class="video-transcript" id="videoTranscript"></p>
+        </section>
+
+        <article class="step-card" id="stepCard">
+          <div class="step-visual" id="stepVisual" aria-hidden="true"></div>
+          <p class="eyebrow" id="stepEyebrow">Подготовка</p>
+          <h2 id="stepTitle"></h2>
+          <p class="step-description" id="stepDescription"></p>
+          <div class="step-tip" id="stepTip"></div>
+        </article>
+
+        <div class="help-panel" id="helpPanel" hidden>
+          <strong>Подсказка мастера</strong>
+          <p id="helpText"></p>
+        </div>
+
+        <div class="weaving-actions">
+          <button class="secondary-button" id="helpButton" type="button">Нужна помощь</button>
+          <span class="action-spacer"></span>
+          <button class="secondary-button" id="previousStepButton" type="button">Назад</button>
+          <button class="primary-button" id="nextStepButton" type="button">Шаг готов</button>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <dialog class="finish-dialog" id="finishDialog">
+    <form class="dialog-shell feedback-form" id="feedbackForm">
+      <button class="dialog-close" id="closeFinishButton" type="button" aria-label="Закрыть">×</button>
+      <p class="eyebrow">Изделие готово</p>
+      <h2>Как прошёл расчёт?</h2>
+      <p class="dialog-description">Ответ поможет точнее рассчитывать следующие проекты.</p>
+      <div class="field-grid">
+        <label>Что со шнуром?<select id="cordResult" required><option value="">Выбрать</option><option value="left">Остался</option><option value="exact">Хватило точно</option><option value="short">Не хватило</option></select></label>
+        <label>Сколько, см<input id="cordDifference" type="number" min="0" placeholder="Например, 25" /></label>
+      </div>
+      <label class="wide-field">Комментарий<textarea id="feedbackNote" rows="3" placeholder="Что изменить в расчёте или шагах?"></textarea></label>
+      <label class="photo-field">Фото изделия<input id="feedbackPhoto" type="file" accept="image/*" /></label>
+      <button class="primary-button" type="submit">Сохранить результат</button>
+    </form>
+  </dialog>
+
+  <dialog class="project-dialog" id="projectDialog">
+    <form method="dialog" class="dialog-shell" id="projectForm">
+      <button class="dialog-close" value="cancel" aria-label="Закрыть">×</button>
+      <div class="dialog-step" data-step="setup">
+        <p class="eyebrow">Новый проект</p>
+        <h2 id="dialogTitle">Настроим изделие</h2>
+        <p id="dialogDescription" class="dialog-description"></p>
+        <div class="field-grid">
+          <label>Ширина, см<input id="widthInput" type="number" min="3" max="100" required /></label>
+          <label>Высота, см<input id="heightInput" type="number" min="5" max="150" required /></label>
+          <label>Шнур<select id="cordInput"><option value="3">3 мм</option><option value="4">4 мм</option><option value="5">5 мм</option></select></label>
+          <label>Плотность<select id="densityInput"><option value="0.92">Свободная</option><option value="1" selected>Средняя</option><option value="1.12">Плотная</option></select></label>
+        </div>
+        <button class="primary-button" id="calculateButton" type="button">Рассчитать проект</button>
+      </div>
+
+      <div class="dialog-step" data-step="result" hidden>
+        <p class="eyebrow">Проект готов</p>
+        <h2 id="resultTitle"></h2>
+        <div class="result-metrics" id="resultMetrics"></div>
+        <div class="cut-card">
+          <div class="cut-card-head"><h3>Схема нарезки</h3><span>с запасом</span></div>
+          <div id="cutList"></div>
+        </div>
+        <p class="beta-note">Предварительный расчёт для закрытой беты. Не укорачивай нити до завершения этапа.</p>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="backButton" type="button">Изменить</button>
+          <button class="primary-button" id="saveButton" type="button">Сохранить и начать</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Проект сохранён</div>
+  <script src="app.js?v=7"></script>
+</body>
+</html>
