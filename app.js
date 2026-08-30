@@ -274,8 +274,7 @@ document.querySelector('#stepList').addEventListener('click', event => {
 });
 
 document.querySelector('#helpButton').addEventListener('click', () => {
-  const panel = document.querySelector('#helpPanel');
-  panel.hidden = !panel.hidden;
+  window.open('https://web.max.ru/18453513', '_blank', 'noopener,noreferrer');
 });
 
 document.querySelector('#exitWeavingButton').addEventListener('click', () => {
